@@ -40,7 +40,7 @@ RatingResults = React.createClass({
 
 		return (
 			<div id="home">
-				<p>Collated rating below!</p>
+				<p>Collated ratings below!</p>
 				<StarRatingsComponent rating={rating} options={ options } />
 		  </div>
 		);

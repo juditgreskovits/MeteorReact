@@ -19,7 +19,6 @@ Meteor.startup(function () {
         <Route path="feedback" component={Admin}>
           <IndexRoute component={FeedbackList}/>
           <Route path=":feedbackId" component={Feedback}/>
-          <Route path="*" component={NotFound}/>
         </Route>
         <Route path="*" component={NotFound}/>
       </Route>

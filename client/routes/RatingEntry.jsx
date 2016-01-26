@@ -1,11 +1,12 @@
 const {
 	Navigation,
-	State
+	State,
+	History
 } = ReactRouter;
 
 RatingEntry = React.createClass({
 
-	mixins: [Navigation, State],
+	mixins: [Navigation, State, History],
 
 	onStarClick(rating) {
 
@@ -19,9 +20,12 @@ RatingEntry = React.createClass({
 		const rating = this.state.rating;
 		const feedback = ReactDOM.findDOMNode(this.refs.feedbackInput).value.trim();
 
+		const react = this;
+
 		if(rating) {
 			Meteor.call('enterRating', rating, feedback, (error, result) => {
 				console.log('error = ' + error + ' result = ' + result);
+				react.history.pushState(null, '/results');
 			});
 		}
 	},
